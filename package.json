@@ -1,7 +1,7 @@
 {
   "name": "@featbit/claude-skills",
-  "version": "1.4.0",
-  "description": "Official Claude Code skills plugin for FeatBit - comprehensive feature flag and A/B testing platform integration with 14 specialized skills including observability",
+  "version": "1.5.0",
+  "description": "Official Claude Code skills plugin for FeatBit - comprehensive feature flag and A/B testing platform integration with 15 specialized skills including observability and AWS deployment",
   "main": "package.json",
   "author": {
     "name": "FeatBit Team",
@@ -58,9 +58,19 @@
       "description": "Expert guidance for FeatBit OpenTelemetry observability integration"
     },
     {
-      "name": "featbit-deployment",
-      "path": "skills/featbit-deployment",
-      "description": "Comprehensive deployment guidance for FeatBit"
+      "name": "featbit-deployment-docker",
+      "path": "skills/featbit-deployment-docker",
+      "description": "Expert Docker Compose deployment guidance for FeatBit"
+    },
+    {
+      "name": "featbit-deployment-kubernetes",
+      "path": "skills/featbit-deployment-kubernetes",
+      "description": "Expert Kubernetes and Helm deployment guidance for FeatBit"
+    },
+    {
+      "name": "featbit-deployment-aws",
+      "path": "skills/featbit-deployment-aws",
+      "description": "Guidance for deploying FeatBit on AWS with ECS Fargate, EKS, and Terraform"
     },
     {
       "name": "featbit-dotnet-sdk",

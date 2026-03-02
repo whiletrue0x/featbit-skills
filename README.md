@@ -1,7 +1,7 @@
 # FeatBit Skills for AI Coding Agents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](CHANGELOG.md)
 
 > **✨ Universal Compatibility**: These skills work with **all AI coding agents that support the skills protocol**, including **Claude Code**, **VSCode Copilot**, **Cursor**, and other compatible agents. Install once, use everywhere!
 
@@ -9,7 +9,7 @@ Official skills plugin for [FeatBit](https://featbit.co) - an open-source, power
 
 ## 🎯 What is This?
 
-This plugin provides comprehensive knowledge and guidance for integrating FeatBit into your applications through **14 specialized skills** covering platform documentation, deployment strategies, SDK implementations, and observability across multiple programming languages and frameworks.
+This plugin provides comprehensive knowledge and guidance for integrating FeatBit into your applications through **15 specialized skills** covering platform documentation, deployment strategies, SDK implementations, and observability across multiple programming languages and frameworks.
 
 **🔧 Works with Multiple AI Agents:**
 - ✅ **Claude Code** (Anthropic's AI assistant - inventor of the Skills protocol)
@@ -94,7 +94,7 @@ For troubleshooting, enterprise setup, or manual installation, see the [complete
 
 ## 🎓 Available Skills
 
-This plugin includes **14 specialized skills** organized by category:
+This plugin includes **15 specialized skills** organized by category:
 
 ### Platform & Infrastructure
 
@@ -154,11 +154,22 @@ Expert guidance for Kubernetes/Helm deployments:
 
 **Example**: "How do I deploy FeatBit to Azure AKS with automatic SSL certificates?"
 
+#### **5. FeatBit AWS Deployment** (`featbit-deployment-aws`)
+Guidance for deploying FeatBit on AWS using ECS Fargate and Kubernetes:
+- ☁️ ECS Fargate with ALB — recommended Terraform baseline
+- ⚡ Fault tolerance vs. true High Availability explained
+- 🌐 Multi-AZ task placement for AZ-level resilience
+- ☸️ EKS/Kubernetes deployments (see `featbit-deployment-kubernetes`)
+
+**Activates when**: Asking about deploying or running FeatBit on AWS.
+
+**Example**: "How do I set up High Availability for FeatBit on AWS ECS Fargate?"
+
 ---
 
 ### Server-Side SDKs
 
-#### **5. FeatBit .NET SDK** (`featbit-dotnet-sdk`)
+#### **6. FeatBit .NET SDK** (`featbit-dotnet-sdk`)
 Expert guidance for .NET Server SDK integration:
 - 🏗️ ASP.NET Core with dependency injection
 - 🖥️ Console applications and worker services
@@ -171,7 +182,7 @@ Expert guidance for .NET Server SDK integration:
 
 **Example**: "How do I integrate FeatBit in my ASP.NET Core API?"
 
-#### **6. FeatBit Node.js Server SDK** (`featbit-node-server-sdk`)
+#### **7. FeatBit Node.js Server SDK** (`featbit-node-server-sdk`)
 Expert guidance for Node.js Server SDK:
 - ⚡ Express, Koa, NestJS framework integration
 - 👥 Multi-user server applications
@@ -183,7 +194,7 @@ Expert guidance for Node.js Server SDK:
 
 **Example**: "Set up FeatBit in my Express API"
 
-#### **7. FeatBit Python SDK** (`featbit-python-sdk`)
+#### **8. FeatBit Python SDK** (`featbit-python-sdk`)
 Expert guidance for Python Server SDK:
 - 🌶️ Flask and Django framework integration
 - ⚡ FastAPI support
@@ -195,7 +206,7 @@ Expert guidance for Python Server SDK:
 
 **Example**: "Integrate FeatBit with my Flask application"
 
-#### **8. FeatBit Java SDK** (`featbit-java-sdk`)
+#### **9. FeatBit Java SDK** (`featbit-java-sdk`)
 Expert guidance for Java Server SDK:
 - Spring Boot integration
 - Maven and Gradle setup
@@ -211,7 +222,7 @@ Expert guidance for Java Server SDK:
 
 **Example**: "How to use FeatBit in Spring Boot?"
 
-#### **9. FeatBit Go SDK** (`featbit-go-sdk`)
+#### **10. FeatBit Go SDK** (`featbit-go-sdk`)
 Expert guidance for Go Server SDK:
 - 🍸 Gin and Echo framework integration
 - 🌐 Standard HTTP server support
@@ -227,7 +238,7 @@ Expert guidance for Go Server SDK:
 
 ### Client-Side SDKs
 
-#### **10. FeatBit JavaScript Client SDK** (`featbit-javascript-client-sdk`)
+#### **11. FeatBit JavaScript Client SDK** (`featbit-javascript-client-sdk`)
 Expert guidance for browser JavaScript SDK:
 - 🌐 Vanilla JavaScript integration
 - 🖥️ Browser applications (SPA, MPA)
@@ -239,7 +250,7 @@ Expert guidance for browser JavaScript SDK:
 
 **Example**: "Add feature flags to my vanilla JS app"
 
-#### **11. FeatBit React Client SDK** (`featbit-react-client-sdk`)
+#### **12. FeatBit React Client SDK** (`featbit-react-client-sdk`)
 Expert guidance for React SDK:
 - ⚛️ React hooks: `useFlags()`, `useFbClient()`
 - 🎯 Provider pattern with `FbProvider`
@@ -252,7 +263,7 @@ Expert guidance for React SDK:
 
 **Example**: "Use feature flags in my React components"
 
-#### **12. FeatBit React Native SDK** (`featbit-react-native-sdk`)
+#### **13. FeatBit React Native SDK** (`featbit-react-native-sdk`)
 Expert guidance for React Native mobile SDK:
 - 📱 iOS and Android platform support
 - 📲 Device information integration
@@ -268,7 +279,7 @@ Expert guidance for React Native mobile SDK:
 
 ### OpenFeature Providers
 
-#### **13. FeatBit OpenFeature Node.js Provider** (`featbit-openfeature-node-server`)
+#### **14. FeatBit OpenFeature Node.js Provider** (`featbit-openfeature-node-server`)
 Expert guidance for vendor-neutral feature flagging:
 - 🌐 OpenFeature standard API compliance
 - ⚡ Express, Koa, NestJS integration
@@ -280,7 +291,7 @@ Expert guidance for vendor-neutral feature flagging:
 
 **Example**: "Use OpenFeature with FeatBit in my Express API"
 
-#### **14. FeatBit OpenFeature JavaScript Provider** (`featbit-openfeature-js-client`)
+#### **15. FeatBit OpenFeature JavaScript Provider** (`featbit-openfeature-js-client`)
 Expert guidance for browser OpenFeature integration:
 - 🌐 Vendor-neutral browser feature flags
 - ⚛️ React, Vue, Angular integration

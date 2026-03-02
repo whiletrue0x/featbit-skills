@@ -5,6 +5,19 @@ All notable changes to the FeatBit Claude Code Skills plugin will be documented 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-03-03
+
+### Added
+- **New AWS Deployment Skill** (`featbit-deployment-aws`)
+  - Deployment guidance for AWS ECS Fargate and EKS (Kubernetes)
+  - References `featbit-terraform-aws` as the recommended ECS Fargate Terraform baseline
+  - High Availability setup guide: ALB routing, multi-AZ ECS task placement
+  - Clarifies fault tolerance (same-AZ redundancy) vs. true High Availability (cross-AZ)
+  - Points to `featbit-deployment-kubernetes` skill for EKS deployments
+- Updated plugin from 14 to 15 specialized skills
+
+---
+
 ## [1.4.0] - 2026-02-03
 
 ### Improved
