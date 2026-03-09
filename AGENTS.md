@@ -21,6 +21,16 @@ featbit-skills/
 
 ## Skill Authoring Rules
 
+### Core Principle: Concise is Key
+
+The context window is a shared resource. Only add context the agent doesn't already have. Challenge each piece of information:
+
+- "Does the agent really need this explanation?"
+- "Can I assume the agent knows this?"
+- "Does this paragraph justify its token cost?"
+
+At startup, only `name` and `description` are pre-loaded. `SKILL.md` is read only when the skill becomes relevant, and reference files are read only as needed.
+
 ### Directory and Naming
 
 - Every skill directory must be named `featbit-{topic}`.
@@ -42,12 +52,13 @@ metadata:
 ---
 ```
 
-`name` rules: 1–64 characters, lowercase letters, numbers, and hyphens, no consecutive hyphens.
+`name` rules: 1–64 characters, lowercase letters, numbers, and hyphens, no consecutive hyphens. No reserved words: "anthropic", "claude".
 
 `description` rules:
-- Third person, describes capability.
+- Third person, describes capability and when to use it.
 - Include explicit positive triggers (user phrases, file extensions, keywords).
 - Include at least one negative trigger ("Do not use for...") to prevent false activation.
+- No XML tags in the value.
 
 Bad: `FeatBit SDK help.`
 
@@ -56,7 +67,7 @@ Good: `Expert guidance for integrating FeatBit .NET Server SDK. Use when user as
 ### SKILL.md Content
 
 - Hard limit: 500 lines. Move excess content to `references/`.
-- `SKILL.md` is the navigation brain — high-level steps and decisions only.
+- `SKILL.md` is the navigation brain — quick start + decision routing only.
 - Do not inline large code blocks, full config files, or exhaustive API schemas. Put them in `references/` or `assets/`.
 - Load reference files just-in-time: instruct explicitly when to read them.
 
@@ -65,25 +76,71 @@ Just-in-time loading pattern:
 Read `references/environment-variables.md` only when the user asks about a specific variable or config option.
 ```
 
+### Degrees of Freedom
+
+Match instruction specificity to the task's fragility:
+
+- **High freedom** (prose guidance): Use when multiple valid approaches exist or context determines the best path. Example: "Review the flag evaluation logic and suggest improvements."
+- **Medium freedom** (pseudocode/templates with parameters): Use when a preferred pattern exists but some variation is acceptable. Example: provide a code template with placeholder comments.
+- **Low freedom** (exact scripts, no variation): Use when operations are fragile or a specific sequence must be followed. Example: "Run exactly: `python scripts/migrate.py --verify --backup`. Do not modify the command."
+
 ### Writing Style
 
 - Use numbered steps for every workflow. Define a strict chronological sequence.
-- Write in third-person imperative: "Extract the flag key from..." not "You should extract..." or "I will extract..."
+- Write in imperative for workflow steps: "Extract the flag key from..." not "You should extract..."
+- Description field must be third person: "Provides guidance for..." not "I can help you..."
 - Map decision branches explicitly: "Step 3: If the user is on ASP.NET Core, proceed to Step 4. Otherwise skip to Step 5."
 - Use one term per concept throughout the file. Never alternate between "feature flag", "flag", and "toggle".
 - Use domain-native terminology (e.g., "dependency injection container" for .NET, not just "setup").
+- Do not include time-sensitive information. Use `<details>` blocks for legacy/deprecated patterns.
 
 ### Reference Files
 
 - Each reference file addresses one topic completely and is self-contained.
 - Name descriptively: `references/openfeature-integration.md`, not `references/extra.md`.
 - `SKILL.md` must state exactly when and why to open each reference file.
+- References longer than 100 lines should include a table of contents at the top.
+- Never nest references: all reference files link directly from `SKILL.md`. Never create `advanced.md` that points to `details.md`.
+
+### Workflows
+
+For multi-step tasks, provide a copyable checklist followed by per-step detail:
+
+```markdown
+## Setup workflow
+
+Copy and track progress:
+- [ ] Step 1: Install SDK
+- [ ] Step 2: Configure environment
+- [ ] Step 3: Initialize client
+- [ ] Step 4: Evaluate first flag
+
+**Step 1: Install SDK**
+Run: `pip install fb-python-sdk`
+
+**Step 2: Configure environment**
+...
+```
+
+For error-prone operations, include a validation feedback loop: run validator → fix errors → repeat.
 
 ### Scripts
 
 - Scripts in `scripts/` must be tiny single-purpose CLIs (Python, Bash, or Node).
 - Scripts emit descriptive stdout/stderr so the agent can self-correct without user intervention.
 - Do not bundle library or application code in scripts.
+- Provide utility scripts for deterministic, repeatable operations — pre-made scripts are more reliable than generated code.
+- Make execution intent explicit: "Run `validate.py`" (execute) vs "See `validate.py` for the algorithm" (read).
+
+### MCP Tool References
+
+When referencing MCP tools in a skill, always use the fully qualified format to avoid "tool not found" errors:
+
+```
+Use the FeatBit:get_feature_flags tool to retrieve flags.
+```
+
+Format: `ServerName:tool_name`
 
 ### What to Remove
 
@@ -91,6 +148,14 @@ Read `references/environment-variables.md` only when the user asks about a speci
 - Prose explanations — convert to numbered steps or move to `references/`.
 - Marketing text ("FeatBit is a powerful platform that...").
 - Information already covered by another skill (e.g., auth basics from `featbit-rest-api` need not repeat in SDK skills).
+- Time-sensitive content ("before August 2025, use X") — use deprecated sections instead.
+
+### Anti-Patterns
+
+- **Too many options**: Don't list 5 libraries. Pick one default and mention the alternative only when the default won't work.
+- **Deeply nested references**: Never chain `SKILL.md → advanced.md → details.md`. Keep all references one level deep from `SKILL.md`.
+- **Windows-style paths**: Always use forward slashes (`references/guide.md`), never backslashes.
+- **Vague descriptions**: Avoid `description: Helps with FeatBit`. Be specific about what and when.
 
 ### New Skill Checklist
 
@@ -108,12 +173,17 @@ When adding a new skill, complete all steps in order:
 Verify before every skill commit:
 
 - [ ] `name` in frontmatter exactly matches the directory name
+- [ ] `name` contains no reserved words ("anthropic", "claude")
 - [ ] Description has at least one negative trigger
+- [ ] Description is written in third person
 - [ ] `SKILL.md` is under 500 lines
 - [ ] All files referenced in `SKILL.md` exist at the specified paths
 - [ ] All paths use forward slashes and are relative
 - [ ] No `README.md` or `CHANGELOG.md` inside the skill directory
-- [ ] All instructions are third-person imperative
+- [ ] All workflow steps use imperative voice
+- [ ] Reference files are one level deep from `SKILL.md` (no chained references)
+- [ ] Reference files longer than 100 lines have a table of contents
+- [ ] No time-sensitive date conditions in the content
 - [ ] Skill is listed in `package.json` `skills` array
 
 ## Versioning

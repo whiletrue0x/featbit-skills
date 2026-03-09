@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "@featbit/claude-skills",
-  "version": "1.5.0",
-  "description": "Official Claude Code skills plugin for FeatBit - comprehensive feature flag and A/B testing platform integration with 15 specialized skills including observability and AWS deployment",
+  "version": "2.0.0",
+  "description": "Official Claude Code skills plugin for FeatBit - comprehensive feature flag and A/B testing platform integration with 16 specialized skills including observability and AWS deployment",
   "main": "package.json",
   "author": {
     "name": "FeatBit Team",
@@ -73,44 +73,49 @@
       "description": "Guidance for deploying FeatBit on AWS with ECS Fargate, EKS, and Terraform"
     },
     {
-      "name": "featbit-dotnet-sdk",
-      "path": "skills/featbit-dotnet-sdk",
+      "name": "featbit-sdks-dotnet",
+      "path": "skills/featbit-sdks-dotnet",
       "description": "Expert guidance for FeatBit .NET Server SDK integration"
     },
     {
-      "name": "featbit-node-server-sdk",
-      "path": "skills/featbit-node-server-sdk",
+      "name": "featbit-sdks-node",
+      "path": "skills/featbit-sdks-node",
       "description": "Expert guidance for FeatBit Node.js Server SDK integration"
     },
     {
-      "name": "featbit-python-sdk",
-      "path": "skills/featbit-python-sdk",
+      "name": "featbit-sdks-python",
+      "path": "skills/featbit-sdks-python",
       "description": "Expert guidance for FeatBit Python Server SDK integration"
     },
     {
-      "name": "featbit-java-sdk",
-      "path": "skills/featbit-java-sdk",
+      "name": "featbit-sdks-java",
+      "path": "skills/featbit-sdks-java",
       "description": "Expert guidance for FeatBit Java Server SDK integration"
     },
     {
-      "name": "featbit-go-sdk",
-      "path": "skills/featbit-go-sdk",
+      "name": "featbit-sdks-go",
+      "path": "skills/featbit-sdks-go",
       "description": "Expert guidance for FeatBit Go Server SDK integration"
     },
     {
-      "name": "featbit-javascript-client-sdk",
-      "path": "skills/featbit-javascript-client-sdk",
+      "name": "featbit-sdks-javascript",
+      "path": "skills/featbit-sdks-javascript",
       "description": "Expert guidance for FeatBit JavaScript Client SDK"
     },
     {
-      "name": "featbit-react-client-sdk",
-      "path": "skills/featbit-react-client-sdk",
+      "name": "featbit-sdks-react",
+      "path": "skills/featbit-sdks-react",
       "description": "Expert guidance for FeatBit React Client SDK"
     },
     {
-      "name": "featbit-react-native-sdk",
-      "path": "skills/featbit-react-native-sdk",
+      "name": "featbit-sdks-react-native",
+      "path": "skills/featbit-sdks-react-native",
       "description": "Expert guidance for FeatBit React Native SDK"
+    },
+    {
+      "name": "featbit-sdks",
+      "path": "skills/featbit-sdks",
+      "description": "SDK language router — routes questions to the correct language-specific SDK skill"
     },
     {
       "name": "featbit-openfeature-node-server",

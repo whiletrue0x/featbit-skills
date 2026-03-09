@@ -1,7 +1,7 @@
-# FeatBit Skills for AI Coding Agents
+﻿# FeatBit Skills for AI Coding Agents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](CHANGELOG.md)
 
 > **✨ Universal Compatibility**: These skills work with **all AI coding agents that support the skills protocol**, including **Claude Code**, **VSCode Copilot**, **Cursor**, and other compatible agents. Install once, use everywhere!
 
@@ -9,7 +9,7 @@ Official skills plugin for [FeatBit](https://featbit.co) - an open-source, power
 
 ## 🎯 What is This?
 
-This plugin provides comprehensive knowledge and guidance for integrating FeatBit into your applications through **15 specialized skills** covering platform documentation, deployment strategies, SDK implementations, and observability across multiple programming languages and frameworks.
+This plugin provides comprehensive knowledge and guidance for integrating FeatBit into your applications through **16 specialized skills** covering platform documentation, deployment strategies, SDK implementations, and observability across multiple programming languages and frameworks.
 
 **🔧 Works with Multiple AI Agents:**
 - ✅ **Claude Code** (Anthropic's AI assistant - inventor of the Skills protocol)
@@ -94,7 +94,7 @@ For troubleshooting, enterprise setup, or manual installation, see the [complete
 
 ## 🎓 Available Skills
 
-This plugin includes **15 specialized skills** organized by category:
+This plugin includes **16 specialized skills** organized by category:
 
 ### Platform & Infrastructure
 
@@ -169,7 +169,7 @@ Guidance for deploying FeatBit on AWS using ECS Fargate and Kubernetes:
 
 ### Server-Side SDKs
 
-#### **6. FeatBit .NET SDK** (`featbit-dotnet-sdk`)
+#### **6. FeatBit .NET SDK** (`featbit-sdks-dotnet`)
 Expert guidance for .NET Server SDK integration:
 - 🏗️ ASP.NET Core with dependency injection
 - 🖥️ Console applications and worker services
@@ -182,7 +182,7 @@ Expert guidance for .NET Server SDK integration:
 
 **Example**: "How do I integrate FeatBit in my ASP.NET Core API?"
 
-#### **7. FeatBit Node.js Server SDK** (`featbit-node-server-sdk`)
+#### **7. FeatBit Node.js Server SDK** (`featbit-sdks-node`)
 Expert guidance for Node.js Server SDK:
 - ⚡ Express, Koa, NestJS framework integration
 - 👥 Multi-user server applications
@@ -194,7 +194,7 @@ Expert guidance for Node.js Server SDK:
 
 **Example**: "Set up FeatBit in my Express API"
 
-#### **8. FeatBit Python SDK** (`featbit-python-sdk`)
+#### **8. FeatBit Python SDK** (`featbit-sdks-python`)
 Expert guidance for Python Server SDK:
 - 🌶️ Flask and Django framework integration
 - ⚡ FastAPI support
@@ -206,7 +206,7 @@ Expert guidance for Python Server SDK:
 
 **Example**: "Integrate FeatBit with my Flask application"
 
-#### **9. FeatBit Java SDK** (`featbit-java-sdk`)
+#### **9. FeatBit Java SDK** (`featbit-sdks-java`)
 Expert guidance for Java Server SDK:
 - Spring Boot integration
 - Maven and Gradle setup
@@ -222,7 +222,7 @@ Expert guidance for Java Server SDK:
 
 **Example**: "How to use FeatBit in Spring Boot?"
 
-#### **10. FeatBit Go SDK** (`featbit-go-sdk`)
+#### **10. FeatBit Go SDK** (`featbit-sdks-go`)
 Expert guidance for Go Server SDK:
 - 🍸 Gin and Echo framework integration
 - 🌐 Standard HTTP server support
@@ -238,7 +238,7 @@ Expert guidance for Go Server SDK:
 
 ### Client-Side SDKs
 
-#### **11. FeatBit JavaScript Client SDK** (`featbit-javascript-client-sdk`)
+#### **11. FeatBit JavaScript Client SDK** (`featbit-sdks-javascript`)
 Expert guidance for browser JavaScript SDK:
 - 🌐 Vanilla JavaScript integration
 - 🖥️ Browser applications (SPA, MPA)
@@ -250,7 +250,7 @@ Expert guidance for browser JavaScript SDK:
 
 **Example**: "Add feature flags to my vanilla JS app"
 
-#### **12. FeatBit React Client SDK** (`featbit-react-client-sdk`)
+#### **12. FeatBit React Client SDK** (`featbit-sdks-react`)
 Expert guidance for React SDK:
 - ⚛️ React hooks: `useFlags()`, `useFbClient()`
 - 🎯 Provider pattern with `FbProvider`
@@ -263,7 +263,7 @@ Expert guidance for React SDK:
 
 **Example**: "Use feature flags in my React components"
 
-#### **13. FeatBit React Native SDK** (`featbit-react-native-sdk`)
+#### **13. FeatBit React Native SDK** (`featbit-sdks-react-native`)
 Expert guidance for React Native mobile SDK:
 - 📱 iOS and Android platform support
 - 📲 Device information integration
@@ -313,7 +313,7 @@ Simply ask your AI coding assistant (Copilot, Cursor, Claude, etc.) questions wh
 
 **You**: "How do I add feature flags to my ASP.NET Core API?"
 
-**AI Assistant** (activating `featbit-dotnet-sdk`):
+**AI Assistant** (activating `featbit-sdks-dotnet`):
 - OpenFeature standard API
 - Express, NestJS integration
 - Event handling
@@ -339,7 +339,7 @@ Simply ask your AI coding assistant questions while working in your codebase. Th
 
 **You**: "How do I integrate FeatBit in my ASP.NET Core API?"
 
-**AI Assistant** (activating `featbit-dotnet-sdk`):
+**AI Assistant** (activating `featbit-sdks-dotnet`):
 ```
 I'll help you integrate FeatBit into your ASP.NET Core API using dependency injection.
 
@@ -376,7 +376,7 @@ I'll help you integrate FeatBit into your ASP.NET Core API using dependency inje
 
 **You**: "Show me how to use feature flags in my React component"
 
-**AI Assistant** (activating `featbit-react-client-sdk`):
+**AI Assistant** (activating `featbit-sdks-react`):
 ```
 I'll show you how to use FeatBit with React hooks:
 
@@ -542,7 +542,7 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and release notes.
 **A**: Skills activate automatically based on your file context. Just ask questions naturally, and Claude will use the appropriate skill(s).
 
 ### Q: Can I use multiple skills together?
-**A**: Yes! Claude can combine knowledge from multiple skills. For example, asking about "deploying a Python app with FeatBit" might use both `featbit-python-sdk` and `featbit-deployment`.
+**A**: Yes! Claude can combine knowledge from multiple skills. For example, asking about "deploying a Python app with FeatBit" might use both `featbit-sdks-python` and `featbit-deployment`.
 
 ### Q: Are these skills kept up to date?
 **A**: We regularly update skills to match the latest FeatBit releases. Check [CHANGELOG.md](CHANGELOG.md) for update history.

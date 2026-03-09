@@ -5,6 +5,33 @@ All notable changes to the FeatBit Claude Code Skills plugin will be documented 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-03-09
+
+### Breaking Changes
+- **Renamed all SDK skill directories** from `featbit-{language}-sdk` to `featbit-sdks-{language}` for
+  consistent file-browser grouping. Systems referencing skills by the old names must update:
+  - `featbit-dotnet-sdk` → `featbit-sdks-dotnet`
+  - `featbit-java-sdk` → `featbit-sdks-java`
+  - `featbit-node-server-sdk` → `featbit-sdks-node`
+  - `featbit-javascript-client-sdk` → `featbit-sdks-javascript`
+  - `featbit-go-sdk` → `featbit-sdks-go`
+  - `featbit-react-client-sdk` → `featbit-sdks-react`
+  - `featbit-react-native-sdk` → `featbit-sdks-react-native`
+  - `featbit-python-sdk` → `featbit-sdks-python`
+
+### Added
+- **`featbit-sdks` router skill** — language-detection routing table that directs SDK questions to the
+  correct language-specific skill without requiring users to know the exact skill name
+
+### Improved
+- **Slim all SDK SKILL.md files** to ≤107 lines using the GitHub-pointer model:
+  - Each skill now contains only FeatBit-specific vocabulary (exact class/method names), one minimal
+    Quick Start from the official README, and anchor links for advanced topics
+  - Content that AI can generate from general language knowledge has been removed
+  - All advanced topic links point directly to the official GitHub README anchors
+
+---
+
 ## [1.5.0] - 2026-03-03
 
 ### Added
