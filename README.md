@@ -1,6 +1,6 @@
 ﻿# FeatBit Agent Skills
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.1.1-blue.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![skills.sh](https://img.shields.io/badge/install-skills.sh-black.svg)](https://skills.sh/featbit/featbit-skills)
 
@@ -33,7 +33,7 @@ npx skills add featbit/featbit-skills --list
 
 | | |
 |---|---|
-| 16 Skills | SDK integration, deployment, API, and platform knowledge |
+| 17 Skills | SDK integration, deployment, API, and platform knowledge |
 | 7 Languages | .NET, Node.js, Python, Java, Go, JavaScript, React / React Native |
 | 3 Deployment targets | Docker Compose, Kubernetes/Helm, AWS ECS Fargate |
 
@@ -49,6 +49,7 @@ Use skills selectively. Loading all skills when only one is relevant wastes cont
 | `featbit-documentation` | Routes questions to official docs.featbit.co pages |
 | `featbit-rest-api` | Manage projects, environments, and feature flags via HTTP API |
 | `featbit-opentelemetry` | Configure metrics, traces, and logs with OpenTelemetry backends |
+| `featbit-evaluation-insights-api` | Flag Evaluation API + Track Insights API for custom mobile SDKs (Kotlin, Swift, Android, iOS, Unity, embedded) |
 
 ### Deployment
 

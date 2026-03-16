@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "self-review": {
+      "source": "motiful/self-review",
+      "sourceType": "github",
+      "computedHash": "ac9be4e5b869c474e4e4016875306b047034f39941f45a8bc996cedfd4f29027"
+    },
     "skill-forge": {
       "source": "motiful/skill-forge",
       "sourceType": "github",
