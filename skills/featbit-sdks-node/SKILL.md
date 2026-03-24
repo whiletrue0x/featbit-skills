@@ -102,6 +102,29 @@ const bob = new UserBuilder('unique_key_for_bob')
 
 Use `.custom(key, value)` for any attribute that must be referenced in feature flag targeting rules. Values can be strings or numbers.
 
+## Custom Event Tracking
+
+Use `track` to send a custom event for experiments or conversion metrics after the related feature flag has already been evaluated for the same user:
+
+```typescript
+const flagKey = 'checkout-redesign';
+const user = new UserBuilder('user-123').name('Jane').build();
+
+await fbClient.waitForInitialization();
+
+const enabled = await fbClient.boolVariation(flagKey, user, false);
+
+if (enabled) {
+    fbClient.track(user, 'purchase-completed', 99.5);
+}
+
+await fbClient.close();
+```
+
+Use `fbClient.track(user, eventName)` when the event is a simple counter. Use `fbClient.track(user, eventName, numericValue)` when the event also carries a numeric metric such as revenue, score, or quantity. `numericValue` is optional and defaults to `1.0`.
+
+Call `track` only after the related feature flag evaluation call. If `track` runs before the flag is evaluated for that user, the custom event will not be included in experiment results.
+
 ## OpenFeature Integration
 
 Install three packages:
@@ -139,4 +162,4 @@ See [openfeature-provider-node-server](https://github.com/featbit/openfeature-pr
 
 - Read the official README section for [evaluating flags](https://github.com/featbit/featbit-node-server-sdk#evaluating-flags) when the user asks how to inspect evaluation detail or use non-boolean typed variants (`stringVariation`, `numberVariation`, `jsonVariation`).
 - Read the official README section for [IUser](https://github.com/featbit/featbit-node-server-sdk#iuser) when the user asks about user attributes, custom properties, targeting fields, or user construction patterns.
-- Read the official README sections for [FbClientNode](https://github.com/featbit/featbit-node-server-sdk#fbclientnode), [polling mode](https://github.com/featbit/featbit-node-server-sdk#fbclient-using-polling), [logger](https://github.com/featbit/featbit-node-server-sdk#logger), [offline mode](https://github.com/featbit/featbit-node-server-sdk#offline-mode), [disable events collection](https://github.com/featbit/featbit-node-server-sdk#disable-events-collection), and [experiments](https://github.com/featbit/featbit-node-server-sdk#experiments-abn-testing) only when those topics are requested.
+- Read the official README sections for [FbClientNode](https://github.com/featbit/featbit-node-server-sdk#fbclientnode), [polling mode](https://github.com/featbit/featbit-node-server-sdk#fbclient-using-polling), [logger](https://github.com/featbit/featbit-node-server-sdk#logger), [offline mode](https://github.com/featbit/featbit-node-server-sdk#offline-mode), [disable events collection](https://github.com/featbit/featbit-node-server-sdk#disable-events-collection), and [experiments](https://github.com/featbit/featbit-node-server-sdk#experiments-abn-testing) when the user asks about custom events, A/B testing, conversion tracking, or event collection behavior.
